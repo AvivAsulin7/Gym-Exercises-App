@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exercisesOptions, fetchData } from "../utils/fetchData";
+import Carousel from "./Carousel";
 
-function SearchExercises() {
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
+  const [bodyParts, setBodyParts] = useState([]);
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+        exercisesOptions
+      );
+      setBodyParts(["all", ...bodyPartsData]);
+    };
+    fetchExercisesData();
+  }, []);
 
   const handleSearch = async () => {
     if (search) {
@@ -11,9 +24,18 @@ function SearchExercises() {
         "https://exercisedb.p.rapidapi.com/exercises",
         exercisesOptions
       );
-      console.log(exercisesData);
+      const searchedExercises = exercisesData.filter(
+        (exercise) =>
+          exercise.name.toLowerCase().includes(search) ||
+          exercise.target.toLowerCase().includes(search) ||
+          exercise.equipment.toLowerCase().includes(search) ||
+          exercise.bodyPart.toLowerCase().includes(search)
+      );
+      setSearch("");
+      setExercises(searchedExercises);
     }
   };
+
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
       <Typography
@@ -56,8 +78,15 @@ function SearchExercises() {
           Search
         </Button>
       </Box>
+      <Box sx={{ position: "realtive", width: "100%", p: "20px" }}>
+        <Carousel
+          data={bodyParts}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
+        />
+      </Box>
     </Stack>
   );
-}
+};
 
 export default SearchExercises;
