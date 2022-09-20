@@ -19,7 +19,7 @@ function HeroBanner() {
         mb="23px"
         mt="30px"
       >
-        Sweat, Smile <br /> and Repeat
+        No Pain , No Gain
       </Typography>
       <Typography fontSize="22px" lineHeight="35px" mb={4}>
         Check out the most effective exercises

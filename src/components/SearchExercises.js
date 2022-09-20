@@ -3,21 +3,27 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exercisesOptions, fetchData } from "../utils/fetchData";
 import Carousel from "./Carousel";
 
-const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
+const SearchExercises = ({
+  exercises,
+  setExercises,
+  bodyPart,
+  setBodyPart,
+}) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
-    const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
-        exercisesOptions
-      );
-      setBodyParts(["all", ...bodyPartsData]);
-    };
     fetchExercisesData();
   }, []);
 
+  const fetchExercisesData = async () => {
+    const bodyPartsData = await fetchData(
+      "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+      exercisesOptions
+    );
+    setBodyParts(["all", ...bodyPartsData]);
+  };
+  //----------------------------------------------
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
@@ -74,6 +80,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           }}
           className="search-btn"
           onClick={handleSearch}
+          href="#exercises"
         >
           Search
         </Button>

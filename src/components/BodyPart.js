@@ -6,6 +6,10 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
   return (
     <Stack
       type="button"
+      onClick={() => {
+        setBodyPart(item);
+        window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+      }}
       alignItems="center"
       justifyContent="center"
       className="bodyPart-card"
@@ -13,8 +17,8 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
         borderTop: bodyPart === item ? "4px solid #FF2625" : "",
         backgroundColor: "#FFF",
         borderBottomLeftRadius: "20px",
-        width: "270px",
-        height: "280px",
+        width: "160px",
+        height: "170px",
         cursor: "pointer",
         gap: "47px",
       }}
@@ -25,7 +29,7 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
         style={{ width: "40px", height: "40px" }}
       ></img>
       <Typography
-        fontSize="24px"
+        fontSize="20px"
         fontWeight="bold"
         color="#3a1212"
         textTransform="capitalize"
