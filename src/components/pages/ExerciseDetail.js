@@ -30,12 +30,11 @@ const ExerciseDetail = () => {
     setExerciseDetail(exercisesDetailData);
     console.log(exerciseDetail);
 
-    const exercisesVideosData = await fetchData(
-      `${youtubeSearchUrl}/search?q=${exercisesDetailData.name}`,
-      youtubeOptions
-    );
-    setExercisesVideos(exercisesVideosData);
-    console.log(exercisesVideos);
+    // const exercisesVideosData = await fetchData(
+    //   `${youtubeSearchUrl}/search?q=${exercisesDetailData.name}`,
+    //   youtubeOptions
+    // );
+    // setExercisesVideos(exercisesVideosData);
   };
   return (
     <Box>
@@ -44,7 +43,7 @@ const ExerciseDetail = () => {
         exercisesVideos={exercisesVideos}
         name={exerciseDetail.name}
       />{" "} */}
-      <SimilarExercises />{" "}
+      {/* <SimilarExercises />{" "} */}
     </Box>
   );
 };
