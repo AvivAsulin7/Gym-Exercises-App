@@ -18,10 +18,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   };
 
   useEffect(() => {
-    fetchExercisesData();
+    // Every time the user choose else body part from carousel ...
+    fetchExercisesDataByBodyPart();
   }, [bodyPart]);
 
-  const fetchExercisesData = async () => {
+  const fetchExercisesDataByBodyPart = async () => {
     let exercisesData = [];
     if (bodyPart == "all") {
       exercisesData = await fetchData(

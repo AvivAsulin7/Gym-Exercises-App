@@ -13,6 +13,7 @@ const SearchExercises = ({
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
+    // While the site is loading ==> fetching body parts to carousel
     fetchExercisesData();
   }, []);
 
@@ -23,7 +24,9 @@ const SearchExercises = ({
     );
     setBodyParts(["all", ...bodyPartsData]);
   };
-  //----------------------------------------------
+
+  //----------------------------------------------//
+
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData(
@@ -72,6 +75,7 @@ const SearchExercises = ({
             bgcolor: "#FF2625",
             color: "#FFF",
             textTransform: "none",
+            ml: "5px",
             width: { lg: "175px", xs: "80px" },
             fontSize: { lg: "20px", xs: "14px" },
             height: "56px",

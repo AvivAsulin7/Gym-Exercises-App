@@ -3,6 +3,10 @@ body {
   background-color: #FFFAFB;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -106,12 +110,19 @@ body {
   text-decoration: none;
 }
 
+.swiper {
+  width: 30%;
+}
+
+.swiper-slide {
+  padding-bottom: 25px;
+}
+
 @media screen and (max-width:1200px) {
   .detail-image {
     width: 300px;
     height: 300px;
   }
-
 
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
@@ -134,11 +145,24 @@ body {
     width: 320px;
     height: 300px;
   }
-
 }
 
 @media screen and (max-width:400px) {
   .exercise-card {
     width: 280px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+
+  .swiper {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width:600px) {
+
+  .swiper {
+    width: 100%;
   }
 }

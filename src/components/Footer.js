@@ -10,7 +10,7 @@ function Footer() {
       <Stack gap="40px" alignItems="center">
         <img src={Logo} width="150px" height="130px"></img>
         <Typography variant="h7" pb="40px">
-          Aviv Asulin @ {year}
+          &copy; Aviv Asulin {year}
         </Typography>
       </Stack>
     </Box>
