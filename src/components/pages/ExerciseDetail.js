@@ -15,6 +15,7 @@ const ExerciseDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    // Every time the ID changes ==> fetching exercise detail by ID
     fetchExercisesData();
   }, [id]);
 
@@ -28,10 +29,9 @@ const ExerciseDetail = () => {
       exercisesOptions
     );
     setExerciseDetail(exercisesDetailData);
-    console.log(exerciseDetail);
 
     // const exercisesVideosData = await fetchData(
-    //   `${youtubeSearchUrl}/search?q=${exercisesDetailData.name}`,
+    //   `https://youtube-search-and-download.p.rapidapi.com/search?q=${exercisesDetailData.name}`,
     //   youtubeOptions
     // );
     // setExercisesVideos(exercisesVideosData);

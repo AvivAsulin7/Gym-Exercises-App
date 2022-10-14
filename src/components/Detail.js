@@ -15,7 +15,11 @@ const Detail = ({ exerciseDetail }) => {
   return (
     <Stack
       gap="60px"
-      sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
+      sx={{
+        flexDirection: { lg: "row" },
+        p: "20px",
+        alignItems: "center",
+      }}
     >
       <img
         src={gifUrl}
@@ -24,8 +28,9 @@ const Detail = ({ exerciseDetail }) => {
         className="detail-image"
       ></img>
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
-        <Typography variant="h3">{name}</Typography>
-        <Typography>Exercises</Typography>
+        <Typography variant="h3" sx={{ fontFamily: "Montserrat" }}>
+          {name}
+        </Typography>
         {extraDetail.map((item) => (
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">
             <Button
@@ -42,7 +47,11 @@ const Detail = ({ exerciseDetail }) => {
                 style={{ width: "50px", height: "50px" }}
               ></img>
             </Button>
-            <Typography variant="h5" textTransform="capitalize">
+            <Typography
+              variant="h5"
+              textTransform="capitalize"
+              sx={{ fontFamily: "Montserrat" }}
+            >
               {item.name}
             </Typography>
           </Stack>
